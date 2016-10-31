@@ -1,11 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>About me</title>
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#test").hide();
+    });
+});
+</script>
 </head>
 <body>
-	<h1>About me {{$name}} {{$age}}</h3>
-	<p>I'm bon, I'm PHP Developer, I love you ^_^</p>
+
+<div id="test">This is a heading</div>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<button>Click me to hide paragraphs</button>
+
 </body>
 </html>

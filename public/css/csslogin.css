@@ -1,0 +1,99 @@
+body{
+	background-color: #3c8dbc;
+}
+*{margin:0;padding:0;}
+#wrapper{
+width:600px;
+margin:auto;
+}
+#login{
+	width:400px;
+	height:auto;
+	border:thin solid #CCC;
+	border-radius:8px;
+	padding:10px 20px 20px 20px;
+	margin:100px auto;
+	background-color: rgba(250,250,250,0.5);
+}
+#login h3{
+	text-align: center;
+	font-size: 34px;
+	color: white;
+	margin: 0 0 30px 0;
+}
+#login table{
+	width: 100%;
+}
+#login span {
+	color:#999;
+}
+#login input{
+width: 97%;
+height:25px;
+margin:10px 0 0 0;
+border:solid thin #ccc;
+padding: 5px;
+}
+#login button{
+	width: 100%;
+	height: 50px;
+	margin: 10px 0 0 0;
+	padding: 10px 20px 10px 20px;
+	background-color: #49ace5;
+	border:none;
+	color: white;
+	font-size: 24px;
+}
+#login button:hover{
+	background-color: #127cba;
+}
+#login a{
+	text-decoration: none;
+	color: blue;
+	margin: 0 0 0 110px;
+}
+#login a:hover{
+	color: red;
+}
+#wrapper h4{
+	margin: 30px 0 20px 0;
+	height: 24px;
+	text-align: center;
+	color: white;
+	padding: 0px;
+	font-size: 14px;
+	border:solid thin #fff;
+}
+
+#wrapper h4 span{
+	width: 30px;
+	float: left;
+	color: #ccc;
+	font-size: 24px;
+	font-weight: bold;
+	background-color: #fff;
+}
+#wrapper h4 p{
+	text-align: center;
+	margin: 5px 0 0 30px;
+}
+/*register*/
+#register{
+	width: 400px;
+	float: left;
+	margin: 100px 0 0 0;
+	background-color: rgba(250,250,250,0.5);
+	padding: 20px;
+}
+#register h4{
+	margin: 0 0 10px 0;
+}
+#register input{
+	width: 300px;
+	height: 30px;
+	padding: 5px;
+	margin: 0 0 20px 0;
+}
+#register button{
+	padding: 5px ;
+}

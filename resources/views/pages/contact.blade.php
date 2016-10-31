@@ -1,5 +1,8 @@
 @extends('templates.master')
- 
+@section('title')
+day la title trang contact
+@endsection
 @section('content')
-Đây là trang contact
+
+day la trang contact
 @stop

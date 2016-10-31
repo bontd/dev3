@@ -13,12 +13,8 @@ class PagesController extends Controller {
 		// $age = "22";
 		// return view("pages.abouttime") ->with(['name'=>$name,'age'=>$age ]);
 
-		$name = 'My name is 4';
-		$age = '22';
-		$data = [];
-		$data['name'] = $name;
-		$data['age'] = $age;
-		return view("pages.abouttime",$data);
+		
+		return view("pages.abouttime");
 	}
 	public function contact(){
     return view('pages.contact');
