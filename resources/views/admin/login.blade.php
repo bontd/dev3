@@ -17,10 +17,6 @@
 <div id="wrapper">
     <div id="login">
     	<h3>AdminLTE</h3>
-    	<h4>
-    	<p>{{$error or "Type your username and password"}}
-    	</p>
-    	</h4>
 		{{ csrf_field() }}
 		<form method="POST" >
 			{!! csrf_field() !!}
@@ -32,7 +28,12 @@
 					<td><input type="password" name="password" id="password"></td>
 				</tr>
 				<tr>
-					<td><button type="submit">Login</button></td>
+					<td>
+			    	<h4>{{$error or ""}}</h4>
+			    	</td>
+				</tr>
+				<tr>
+					<td><button type="submit">Login</button><p><a href="#">Forgot password</a></p></td>
 				</tr>
 			</table>
 		</form>

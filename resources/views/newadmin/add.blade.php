@@ -23,7 +23,7 @@ Admin - add new
 		<td>
 			<select name="type">
 			@foreach($type as $types)
-				<option value="{{$types->id}}">{{$types->name}}</option>
+				<option value="{{$types->id}}">{{$types->names}}</option>
 			@endforeach
 			</select>
 		</td>

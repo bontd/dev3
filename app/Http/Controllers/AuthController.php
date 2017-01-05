@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Session;
 use Illuminate\Support\Facades\Input;
+use App\Models\Users;
  
 class AuthController extends Controller {
 	public function __construct(){
@@ -44,6 +45,7 @@ class AuthController extends Controller {
 		}
 	}
 	public function login(Request $request){
+		//$user = new Users();
 		$rules = [
 			'email' => 'required',
 			'password' => 'required'
@@ -59,6 +61,7 @@ class AuthController extends Controller {
 			$email = $request->get('email');
 			$password = $request->get('password');
 			// chuyển query ra ngoài cho dễ nhìn
+			
 			$b_check = DB::table('users')
 				->select('id','name','email','password','status','type')
 				->where('email',$email)
@@ -66,6 +69,7 @@ class AuthController extends Controller {
 				->where('status',1)
 				// thêm
 				->first();
+
 				// echo '<pre>';
 				// print_r($b_check);die;			
 			if($b_check)

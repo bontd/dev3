@@ -31,9 +31,9 @@
 	height:280px;
 }
  @-moz-document url-prefix() {
-#img-new img {width: 100%;}}
+#img-new img {width: 430px;}}
 #main .col-sm-5{
-	height: 400px;
+	height: 470px;
 	padding: 0;
 	color: #747474;
 	float: left;
@@ -44,6 +44,12 @@
 	height: 100px;
 	padding: 5px;
 	float: left;
+}
+.new-box:nth-child(odd){
+	background-color: #fff;
+}
+.new-box:nth-child(even){
+	background-color: #f8f8f8;
 }
 .new-box img{
 	float: left;
@@ -83,8 +89,6 @@ p{
 	width: 100%;
 	background-color: #fff;
 	float: left;
-	padding: 5px;
-	border-radius: 5px;
 	border: solid thin #abaaaa;
 }
 
@@ -116,8 +120,8 @@ p{
 	padding: 0 5px 0 20px;
 	color: #fff;
 	border-radius: 5px;
-	border-top-right-radius: 70px;
-	border-bottom-left-radius: 70px;
+	border-top-left-radius: 70px;
+	border-bottom-right-radius: 70px;
 }
 .new-box-tqt{
 	width: 100%;
@@ -218,7 +222,6 @@ p{
 .right-box-tdn ul li{
 	width: 100%;
 	float: left;
-	border: solid thin #ccc;
 	margin: 0 0 0 0;
 	padding: 10px;
 	background-color: #fff;
@@ -237,7 +240,9 @@ p{
 	width: 109px;
 	height: 82px;
 }
-
+.right-box-tdn ul li:nth-child(even){
+	background-color: #f8f8f8;
+}
 .detail{
 	width: 100%;
 	height: auto;
@@ -255,6 +260,18 @@ p{
 	margin:20px 0 0 0;
 	float:right;
 	font-weight:bold;
+}
+.expNoEdit img{
+	width: 500px;
+	height: 400px;
+}
+.expEdit{
+	font-size: 12px;
+	text-align: center;
+	color: #ccc;
+}
+.new_relation_top ul li h3{
+	font-size: 12px;
 }
 #types{
 	width: 100%;
@@ -297,7 +314,7 @@ p{
 }
 #new-box-type ul li img{
 	float: left;
-	margin:0 5px 0 0;
+	margin:5px 10px 0 0;
 	border: solid thin #000;
 	padding: 1px;
 	width: 109px;
@@ -311,13 +328,50 @@ p{
 	margin: 40px 0 0 0 ;
 	border-top:solid 10px #0a639d;
 }
-
+.modal-dialog{
+	width: 30%;
+}
+.modal-content{
+	background-color: #3c8dbc;
+	color: #fff;
+	margin: auto;
+	width:100%;
+	height:260px;
+}
 .modal-body ul{
-	width: 450px;
+	width: 80%;
 	float: left;
 }
 .modal-body ul li{
+	width:77px;
 	float: left;
 	list-style: none;
 	padding: 10px;
 }
+.modal-body ul li input{
+	width: 200px;
+}
+.modal-header{
+	height: 50px;
+}
+.modal-header h4{
+	margin: 0 !important;
+	text-align: center;
+}
+.modal-header h5{
+	width: auto;
+	margin: auto;
+	font-size: 24px;
+	text-align: center;
+}
+.modal-body{
+	height: 147px;
+	font-size: 36px;
+	background-color: #fff;
+	color: #3c8dbc;
+	text-align: center;
+}
+.modal-footer{
+	background-color: #fff;
+}
+

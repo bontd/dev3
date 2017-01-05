@@ -21,7 +21,9 @@ class AdminNewController extends Controller {
     		$news = DB::table('news')
             ->join('categories','news.category_id','=','categories.id')
             ->join('types','news.type_id','=','types.id')
-            ->select('news.*','categories.name','types.names')->orderBy('created','desc')->get();
+            ->select('news.*','categories.name','types.names')
+            ->orderBy('created','desc')
+            ->get();
     		return view('newadmin.index',['news'=>$news]);
         }else{
         	return redirect()->action('AuthController@login');
@@ -117,8 +119,18 @@ class AdminNewController extends Controller {
             }
         }
     }
-    public function delete($id){
-    	DB::table('news')->where('id',$id)->delete();
-        return redirect()->action('AdminNewController@index');
+    public function delete(){
+        $n_response = new \stdclass();
+        $id = isset($_POST['id']) ? $_POST['id'] : flase;
+    	$new = DB::table('news')->where('id',$id)->delete();
+        // echo '<pre>';
+        // print_r($id);die;
+        if($new){
+            $n_response->status = 'ok';
+        }
+        else{
+            $n_response->status = 'error';
+        }
+        echo json_encode($n_response);
     }
 }

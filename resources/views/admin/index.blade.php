@@ -41,7 +41,8 @@ Admin
 				<td>{{$users->name}}</td>
 				<td>{{$users->email}}</td>
 				<td>{{$users->password}}</td>
-				<td>				
+				<td>
+				@if($status == 'Admin')		
 					@if($users->status == 1)
 					<a href="javascript:void(0);"  data={{$users->status}}>
 						<p id="test-{{$users->id}}" onclick="update_status({{$users->id}});"  style="width:20px;height:20px;" class="fa fa-check"></p>
@@ -52,6 +53,18 @@ Admin
 					</a>
 
 					@endif
+				@else
+					@if($users->status == 1)
+					<a href="javascript:void(0);"  data={{$users->status}}>
+						<p id="test-{{$users->id}}"  style="width:20px;height:20px;" class="fa fa-check"></p>
+					</a>
+					@else
+					<a href="javascript:void(0);"  data={{$users->status}}>
+						<p id="test-{{$users->id}}" style="width:20px;height:20px;" class="fa fa-lock"></p>
+					</a>
+
+					@endif
+				@endif
 				</td>
 				<td>{{$users->type}}</td>
 				<td> <p style="width:75px;margin:auto;">

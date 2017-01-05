@@ -33,8 +33,19 @@ Admin
 				<td>{{$category->name}}</td>
 				<td>{{$category->created}}</td>
 				<td>{{$category->modified}}</td>
-				<td><p style="width:75px;margin:auto;"><a href="categories/view/{{$category->id}}"><i class="fa fa-eye"></i></a> <a href="categories/delete/{{$category->id}}"onClick="return confirm('Bạn có Muốn Xóa')"><i class="fa fa-trash-o"></i></a> 
-    			<a href="categories/edit/{{$category->id}}"><i class="fa fa-pencil-square-o"></i></a></p></td>
+				<td>
+                    <p style="width:75px;margin:auto;">
+                        <a href="categories/view/{{$category->id}}">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a href="categories/delete/{{$category->id}}" onclick="return confirm('Bạn có Muốn Xóa')">
+                            <i class="fa fa-trash-o"></i>
+                        </a> 
+            			<a href="categories/edit/{{$category->id}}">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
+                    </p>
+                </td>
 			</tr>
 		@endforeach
         </tbody>

@@ -46,52 +46,34 @@
 
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-                <div class="modal-content" style="width:450px;height:260px;">
-                <div class="modal-header">
-                  <h5>login</h5>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
-                    <ul>
-                      <li>Username:</li>
-                      <li><input type="text" value=""/></li>
-                    </ul>
-                    <ul>
-                      <li>Password: </li>
-                      <li><input type="password" value=""/></li>
-                    </ul>
-                    <ul>
-                      <li><button type="button"/>login</button></li>
-                    </ul>
-                    </form>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5>login</h5>
+                  </div>
+                  <div class="modal-body">
+                      <form method="post">
+                        <ul>
+                          <li>Username:</li>
+                          <li><input type="text" value=""/></li>
+                        </ul>
+                        <ul>
+                          <li>Password:</li>
+                          <li><input type="password" value=""/></li>
+                        </ul>
+                        <ul>
+                          <li><button type="button"/>login</button></li>
+                        </ul>
+                      </form>
+                  </div>
                 </div>
             </div>
-        </div>
+          </div>
         </div>
     </nav>
 
       <div class="col-md-8">
         <article id="main">
-        @yield('detail')
-          <div class="col-sm-7">
-            <figure id="img-new">
               @yield('content')
-          </div>
-          @yield('news')
-          <div class="col-md-7">
-          @yield('other')
-          </div>
-          <div class="col-md-5">
-            @yield('photos')
-            </div>
-          <div class="col-md-5">
-            @yield('videos')
-          </div>
-          <div class="col-md-12">
-
-            @yield('football')
-
-          </div>
         </article>
       </div>
       <div class="col-md-4">
@@ -104,104 +86,47 @@
           <div class="right-box-tdn">
             <h4>Tin Đọc Nhiều</h4>
             <ul>
+            @foreach($r_news as $r_new)
               <li>
                   <figure>
-                    <a href=""><img src="{{url('./public/img/b1.jpg')}}"/></a>
+                    <a href=""><img src="{{url('./public/dom/image/'.$r_new->image)}}"/></a>
                   </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
+                  <p><span>{{$r_new->created}}</span></p>
+                  <p><a href="">{{$r_new->title}}</a></p>
               </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="{{url('./public/img/b5.jpg')}}"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b7.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b4.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b2.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
+            @endforeach
               
             </ul>
           </div>
           <div id="advertisement">
             <figure>
-              <img src="./public/img/qc2.jpg"/>
+              <img src="{{url('./public/img/qc2.jpg')}}"/>
             </figure>  
           </div>
           <div class="right-box-tdn">
             <h4>Tin Trong Ngày</h4>
             <ul>
+              @foreach($r_news as $r_new)
               <li>
                   <figure>
-                    <a href=""><img src="./public/img/b8.jpg"/></a>
+                    <a href="{{url('news/detail/'.Crypt::encrypt($r_new->id))}}"><img src="{{url('./public/dom/image/'.$r_new->image)}}"/></a>
                   </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
+                  <p><span>{{$r_new->created}}</span></p>
+                  <p><a href="">{{$r_new->title}}</a></p>
               </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b9.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b10.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b11.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              <li>
-                  <figure>
-                    <a href=""><img src="./public/img/b12.jpg"/></a>
-                  </figure>
-                  <p><span>18:45 20/05/2016</span></p>
-                  <p><a href="">ĐT Việt Nam gặp khó tại vòng loại U16 và U19 nữ châu Á 2017</a></p>
-              </li>
-              
+            @endforeach
             </ul>
-          </div>
-
+        </div>
         </div>
       </div>
       <div class="col-md-12">
         <div id="footer">
-          Toàn bộ nội dung bài viết, ý kiến thành viên được kiểm duyệt, cung cấp và bảo trợ thông tin bởi Báo Thể Thao Việt Nam – Cơ quan thuộc Tổng Cục Thể Dục Thể Thao.</br>
+          Toàn bộ nội dung bài viết, ý kiến thành viên được kiểm duyệt..</br>
           Chịu trách nhiệm nội dung: </br>
-          Phó giám đốc Công ty Cổ phần Yêu Thể Thao</br>
-          Giấy phép số 15/GP-TTĐT do Bộ Thông tin và Truyền thông cấp ngày 29/01/2010 và giấy phép số 89/GP-TTĐT của Sở Thông tin và Truyền thông TP.HCM cấp ngày 28/7/2015</br></br></br>
-
-          Bản quyền và phát triển bởi Công ty Cổ Phần Thể Thao</br>
+          </br>
+          </br>
           Địa chỉ: </br>
           Điện thoại: (0963551594, email: hotro@thethaocapnhat.com</br>
-          Mọi hành vi vi phạm bản quyền, sao chép sẽ chịu hoàn toàn trách nhiệm trước pháp luật Việt Nam. 
         </div>
       </div>
     </div>

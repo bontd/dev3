@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','NewsController@index');
 //Route::group(['middleware'=>'myAuth'],function(){
 	Route::group(['prefix'=>'/articles'],function (){
 		Route::get('/','ArticleController@index');
@@ -81,7 +79,7 @@ Route::get('/', function () {
 	Route::group(['prefix'=>'admin-news'],function (){
 		Route::get('/','AdminNewController@index');
 		Route::get('/view/{id}','AdminNewController@view');
-		Route::get('/delete/{id}','AdminNewController@delete');
+		Route::post('/delete','AdminNewController@delete');
 		Route::get('/edit/{id}','AdminNewController@edit');
 		Route::post('/edit/{id}','AdminNewController@update');
 		Route::get('/add','AdminNewController@add');
@@ -103,10 +101,12 @@ Route::get('/', function () {
 		Route::post('/add','TypeController@addAction');
 		Route::get('/edit/{id}','TypeController@edit');
 		Route::post('/edit/{id}','TypeController@editAction');
-		Route::get('/delete/{id}','TypeController@delete');
+		Route::post('/delete','TypeController@delete');
 	});
 	Route::get('news/login',function (){
 		return view('news/login');
 	});
+	Route::get('ajax','TypeController@ajax');
+	Route::post('ajax/test-ajax','TypeController@deleteAjax');
 	
 //});

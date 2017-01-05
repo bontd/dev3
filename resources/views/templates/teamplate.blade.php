@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{url('public/dist/css/AdminLTE.min.css')}}">
   <link rel="stylesheet" href="{{url('public/dist/css/AdminLTE.css')}}">
   <link rel="stylesheet" href="{{url('public/css/datatable.css')}}">
+  <link rel="stylesheet" href="{{url('public/css/stylesheet.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{url('public/dist/css/skins/_all-skins.min.css')}}">
@@ -752,7 +753,7 @@
   
   
 <script src="{{url('public/dist/js/app.min.js')}}"></script>
-  <meta name="csrf-token" content="{{ csrf_token() }}" />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 </div>
 
 </body>

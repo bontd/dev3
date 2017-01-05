@@ -1,3 +1,20 @@
 body {
 	background-color: #ededed !important;
 }
+.thumbox img{
+	margin:  0 auto 10px 130px;
+}
+.title #desc .nref h4  a{		
+}
+.nd img{
+	margin:10px 0 10px 130px;
+}
+#desc{
+	font-weight: bold;
+	margin: 10px 0 10px 0;
+}
+.thumcap{
+	text-align: center;
+	font-style: italic;
+	color: #969797;
+}

@@ -37,13 +37,13 @@ Admin - add new
         </table>
     </form>
     @if (count($errors) > 0)
-            <div class="alert alert-danger login-error" >
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li style="list-style:none;color:red;">{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <div class="alert alert-danger login-error" >
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="list-style:none;color:red;">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 </div>
 @stop

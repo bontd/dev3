@@ -5,55 +5,48 @@ use Illuminate\Http\Request;
 use DB;
 use Crypt;
 use App\Http\Requests;
+use App\Models\News;
 
 class NewsController extends Controller
 {
 	public function __construct(){
-		
+		//$menu = DB::table('categories')->select('*')->orderBy('created','desc')->get();
 	}
     public function index(){
-    	$news = DB::select('select * from news order by id desc limit 16');
-    	$shift = array_shift($news);
-    	//print_r($shift);die;
-    	
-    	$other = DB::select('select * from news order by created desc limit 5');
-    	//print_r($other);die;
-    	$photo = DB::table('news')
-    			->join('categories','news.category_id','=','categories.id')
-    			->where('name','Photo news')
-    			->select('news.*','categories.name')
-    			->limit(3)
-    			->get();
-    	$video = DB::table('news')
-    			->join('categories','news.category_id','=','categories.id')
-    			->where('name','Videos')
-    			->select('news.*','categories.name')
-    			->limit(3)
-    			->get();
-		$fooball = DB::table('news')
-				->join('categories','news.category_id','=','categories.id')
-				->where('name','Bóng đá')
-				->select('news.*','categories.name')
-				->limit(3)
-				->get();
+        $news = new News();
+        $v_data = $news->getAll();
+        $shift = array_shift($v_data);
+        //dd($shift);
+        //dd($v_data);
+    	$other = $news->getOther();
+    	$photo = $news->getPhoto();
+    	$video = $news->getVideo();
+		$fooball = $news->getFooball();
+        $F1 = $news->getF1();
+        $r_news = $news->getViewed();
+        //dd($news);
 		$fooballs = array_shift($fooball);
-		$menu = DB::select('select * from categories order by created desc');
-    		return view('news.index',['news'=>$news, 'shift'=>$shift,'other'=>$other,'photo'=>$photo,'video'=>$video,'fooball'=>$fooball,'fooballs'=>$fooballs,'menu'=>$menu]);
+        $f1_other = array_shift($F1);
+		$menu = $news->getMenu();
+    	return view('news.index',['news'=>$v_data, 'shift'=>$shift,'other'=>$other,'photo'=>$photo,'video'=>$video,'fooball'=>$fooball,'fooballs'=>$fooballs,'menu'=>$menu,'F1'=>$F1,'f1_other'=>$f1_other,'r_news'=>$r_news]);
     }
     public function view($id){
     	$id = Crypt::decrypt($id);
+        $news = new News();
     	//var_dump($id);die;
-    	$menu = DB::select('select * from categories order by created desc');
-    	$views = DB::select('select * from news where id='.$id);
-
-    	//print_r($views);die;
-    	return view('news.detail',['views'=>$views,'menu'=>$menu]);
+    	$menu = $news->getMenu();
+    	$views = DB::table('news')->select('*')->where('id',$id)->first();
+        DB::update('update news set viewed = viewed +1 where id='.$id);
+        $r_news = $news->getViewed();
+    	return view('news.detail',['views'=>$views,'menu'=>$menu,'r_news'=>$r_news]);
     }
     public function category($id){
         $id = Crypt::decrypt($id);
-    	$menu = DB::select('select * from categories order by created desc');
-    	$main = DB::table('news')->select('*')->where('category_id',$id)->paginate(15);
-    	//print_r($main);die;
-    	return view('news.category',['main'=>$main,'menu'=>$menu]);
+        $news = new News();
+    	$menu = $news->getMenu();
+        $category = DB::table('categories')->select('*')->where('id',$id)->first();
+    	$main = DB::table('news')->select('*')->where('category_id',$id)->orderBy('created','desc')->paginate(15);
+        $r_news = $news->getViewed();
+    	return view('news.category',['main'=>$main,'menu'=>$menu,'category'=>$category,'r_news'=>$r_news]);
     }
 }

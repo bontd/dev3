@@ -1,5 +1,5 @@
 body{
-	background-color: #3c8dbc;
+	background-color: #095494;
 }
 *{margin:0;padding:0;}
 #wrapper{
@@ -13,16 +13,19 @@ margin:auto;
 	border-radius:8px;
 	padding:10px 20px 20px 20px;
 	margin:100px auto;
-	background-color: rgba(250,250,250,0.5);
+	background-color: rgba(250,250,250,1);
 }
 #login h3{
 	text-align: center;
 	font-size: 34px;
-	color: white;
-	margin: 0 0 30px 0;
+	color:#095494;
+	margin: 0 0 15px 0;
 }
 #login table{
 	width: 100%;
+}
+#login table tr td{
+	padding: 10px;
 }
 #login span {
 	color:#999;
@@ -35,17 +38,21 @@ border:solid thin #ccc;
 padding: 5px;
 }
 #login button{
-	width: 100%;
-	height: 50px;
-	margin: 10px 0 0 0;
-	padding: 10px 20px 10px 20px;
-	background-color: #49ace5;
+	width: 30%;
+	height: 40px;
+	padding: 6px 20px 10px 20px;
+	background-color: #095494;
 	border:none;
 	color: white;
 	font-size: 24px;
+	float: left;
 }
 #login button:hover{
 	background-color: #127cba;
+}
+#login tr td p{
+	float: right;
+	margin: 22px 0 0 0;
 }
 #login a{
 	text-decoration: none;
@@ -56,13 +63,10 @@ padding: 5px;
 	color: red;
 }
 #wrapper h4{
-	margin: 30px 0 20px 0;
-	height: 24px;
 	text-align: center;
-	color: white;
+	color: red;
 	padding: 0px;
 	font-size: 14px;
-	border:solid thin #fff;
 }
 
 #wrapper h4 span{
@@ -71,11 +75,12 @@ padding: 5px;
 	color: #ccc;
 	font-size: 24px;
 	font-weight: bold;
-	background-color: #fff;
+	background-color: #666;
 }
 #wrapper h4 p{
 	text-align: center;
 	margin: 5px 0 0 30px;
+	color: #095494;
 }
 /*register*/
 #register{

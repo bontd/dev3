@@ -66,8 +66,34 @@ class TypeController extends Controller {
         }
     	
     }
-    public function delete($id){
-    	DB::table('types')->where('id',$id)->delete();
-        return redirect()->action('TypeController@index');
+    public function delete(){
+        $t_response = new \stdclass();
+        $id = isset($_POST['id']) ? $_POST['id'] : false;
+    	$type = DB::table('types')->where('id',$id)->delete();
+        if($type){
+            $t_response->status = 'ok';
+        }
+        else{
+            $t_response->status = 'error';
+        }
+        echo json_encode($t_response);
+    }
+    public function ajax(){
+        $types = DB::select('select * from types order by created desc');
+            return view('ajax.index',['types'=>$types]);
+    }
+    public function deleteAjax(){
+        $o_response = new \stdclass();
+        $id = isset($_POST['id']) ? $_POST['id'] : false;
+        // echo '<pre>';
+        // print_r($id);die;
+        $type = DB::table('types')->where('id',$id)->delete();
+        if($type){
+            $o_response->status = 'ok';
+        }
+        else{
+            $o_response->status = 'error';
+        }
+        echo json_encode($o_response);
     }
 }
